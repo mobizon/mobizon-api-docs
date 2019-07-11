@@ -1,6 +1,6 @@
 ### API response codes
 
-Код                                         | Тип     | Описание
+Code                                        | Type    | Description
 --------------------------------------------|---------|----------------
 <span data-anchor="api-code-0">0</span>     | integer | The operation completed successfully.
 <span data-anchor="api-code-1">1</span>     | integer | Transmitted data validation error while creating or updating of any entity. The data field provides information on the fields incorrectly filled. Please correct mistakes and repeat the request with a new data.

@@ -1,10 +1,7 @@
 ### Receipt of the campaigns list
 {{EXAMPLE_QUERY}}
 
-If the filter by campaign creation date or the launch date is not set, then the system automatically sets the filter by creation date for the last 24 hours from the current time(from 00:00:00 of the last 24 hours to the current moment by the user's time). The maximum sampling interval by creation date/launch date makes 90 days when trying to search for a longer interval only the results for the last 90 days before the date of the end of the search interval will return. If you set the start date or the end date only, the second date will be calculated and installed automatically at a distance of 90 days from the set one. If the date range is invalid (the end date is greater than the start date), then the result will be empty. When installing only dates, the time is set automatically - for start dates to `00: 00: 00`, and for end dates to` 23: 59: 59` according to user time in the system.
-
-
-
+If the filter by campaign creation date or the launch date is not set, then the system automatically sets the filter by creation date for the last 24 hours from the current time(from 00:00:00 of the last 24 hours to the current moment by the user's time). The maximum sampling interval by creation date/launch date makes 90 days when trying to search for a longer interval only the results for the last 90 days before the date of the end of the search interval will return. If you set the start date or the end date only, the second date will be calculated and installed automatically at a distance of 90 days from the set one. If the date range is invalid (the end date is greater than the start date), then the result will be empty. When installing only dates, the time is set automatically - for start dates to `00:00:00`, and for end dates to `23:59:59` according to user timezone settings.
 
 #### Request parameters
 
@@ -13,7 +10,6 @@ If the filter by campaign creation date or the launch date is not set, then the 
 `criteria`       | array   | Search criteria (see [Search criteria](#list-criteria))
 `pagination`     | array   | Pagination display options (see [Pagination display options](#list-pagination))
 `sort`           | array   | Sorting options (see [Sorting options](#list-sort))
-
 
 ##### <span data-anchor="list-criteria">Search criteria</span>
 
@@ -35,14 +31,12 @@ Parameter                  | Type    | Description
 `criteria[sentTimeTo]`     | string  | Search for campaign launch date before the specified date, taking into account the exact time on this day (time format `HH:MM:SS`) - if the date is not specified, this field is to be ignored
 `criteria[type]`           | integer | Search for campaign type; the list of available campaign types see in documentation
 
-
 ##### <span data-anchor="list-pagination">Pagination display options</span>
 
 Parameter                 | Type    | Description
 --------------------------|---------|-----------
 `pagination[pageSize]`    | integer | Number of visible elements on the page
 `pagination[currentPage]` | integer | Current page
-
 
 ##### <span data-anchor="list-sort">Sorting options</span>
 
@@ -54,7 +48,6 @@ Parameter         | Type    | Description
 `sort[text]`      | string  | Campaign text
 `sort[status]`    | string  | Campaign status
 `sort[type]`      | integer | Campaign type
-
 
 #### Server response
 
@@ -82,12 +75,12 @@ Every campaign contains the following fields:
  `createTs`           | string  | Time of creation
  `rateLimit`          | integer | Sending limit by quantity
  `ratePeriod`         | integer | Time period for quantity limit
- `status`             | integer | Current campaign status
- `creationWay`        | integer | Method of campaign creation `WEB/SOAP/SMPP`
- `isDeleted`          | integer | Campaign deletion flag
+ `status`             | integer | Current campaign status. See [List of possible campaign statuses](#list-campaign-statuses) for details.
+ `creationWay`        | integer | Method of campaign creation: `1 - WEB`,`3 - SMPP`, `5 - system` (e.g. SMS with confirmation code for the form)
+ `isDeleted`          | integer | Campaign deleted: `1 - yes`, `0 - no` 
  `extra`              | string  | Serialized parameters' value (`udh`, `ttl`, `mclass`)
  `groups`             | string  | Campaign recipients' groups
- `counters`     | object  | Different campaign counters. See below for details
+ `counters`           | object  | Different campaign counters. See below for details
  
  ##### `counters` object fields
   
@@ -125,3 +118,18 @@ Every campaign contains the following fields:
  `totalPdlivrdMsgCost`| float    | Total cost of all segments with `PDLIVRD` status
  `totalCost`          | float    | Total cost of all segments of the campaign. Updates when processing (before sending) messages/campaign segments.
  `recipientsRejected` | integer  | Number of rejected recipients (not included in the campaign). Updates when processing (before sending) messages/campaign segments.
+
+##### <span data-anchor="list-campaign-statuses">List of possible campaign statuses</span>
+
+Status              | Description
+--------------------|-------------------------------
+NEW                 | The campaign has been created, but the user has not yet sent it. Adding recipients is allowed in this status.
+MODERATION          | Waiting for the moderator to check for compliance with the service rules.
+DECLINED            | Rejected by the moderator because it does not comply with the service rules or the requirements of operators whose numbers are present in the campaign.
+READY_FOR_SEND      | The campaign is accepted and will be sent.
+AUTO_READY_FOR_SEND | The campaign does not need moderation and will be sent.
+NOT_YET_SENT        | Status for the search. Includes all statuses while a campaign has not yet been sent. Campaigns cannot have this status.
+RUNNING             | The campaign is being sent.
+DEFERRED            | Campaign is deferred and will be sent at the specified time.
+SENT                | All messages have been sent to operators and are waiting for statuses.
+DONE                | All statuses have been received or reached the maximum status pending time for all SMS and statuses have not been received (default is 24 hours). Once this status is set, no campaign counters are changed.
