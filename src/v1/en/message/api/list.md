@@ -71,7 +71,7 @@ Each of the messages contains the following fields:
 `from`              | string  | Sender's signature
 `to`                | string  | Recipient number
 `text`              | string  | Message text
-`status`            | integer | Message status
+`status`            | string  | Message status (See [List of possible statuses of messages](other#SmsStatus) table)
 `groups`            | string  | Message recipient group ID, this number belonged to at the time of the campaign
 `uuid`              | string  | Internal message ID 
 `countryA2`         | string  | Recipient's country code

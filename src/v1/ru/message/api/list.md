@@ -43,7 +43,7 @@
 `sort[from]`              | string  | Подпись отправителя
 `sort[to]`                | string  | Номер получателя
 `sort[text]`              | string  | Текст сообщения
-`sort[status]`            | integer | Статус сообщения
+`sort[status]`            | string  | Статус сообщения
 `sort[groups]`            | string  | Группы получателя сообщения
 `sort[contentProviderId]` | integer | Идентификатор SMS центра
 
@@ -71,7 +71,7 @@
 `from`              | string  | Подпись отправителя
 `to`                | string  | Номер получателя
 `text`              | string  | Текст сообщения
-`status`            | integer | Статус сообщения
+`status`            | string  | Статус сообщения (см. таблицу [Список возможных статусов сообщений](other#SmsStatus))
 `groups`            | string  | Идентификаторы групп получателя сообщения, в которые входил данный номер на момент создания кампании
 `uuid`              | string  | Внутренний идентификатор сообщения
 `countryA2`         | string  | Код страны получателя
