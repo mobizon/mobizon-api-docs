@@ -23,9 +23,41 @@
 `deferredToTs` | string  | Дата и время отправки, если нужно начать рассылку в указанное время. Должна быть не позднее чем через 14 дней и не ранее чем через час от текущего времени. Формат: `2013-12-31 15:34:55`
 `mclass`       | integer | ***0, 1, 2, 3***, по умолчанию ***1*** - сообщения сохраняются в папку Входящих сообщений телефона, ***0*** - отображаются всплывающим окном и никуда не сохраняются (flashSMS), поддерживается не всеми телефонами, ***2*** - Сохраняется на сим карту, ***3*** - SIM Toolkit SMS
 `ttl`          | integer | Время жизни сообщения в минутах от 1 мин до 3 суток (4320 мин) с момента отправки (параметр доступен только для SMS кампаний)
-`counters`     | object  | Различные счетчики кампании
+ `counters`    | object  | Различные счетчики кампании, описанные в таблице ниже.
 
-
-
-
-
+##### Поля объекта `counters`
+ 
+Поле                 | Тип      | Описание
+---------------------|----------|-----------
+`updateTs`           | datetime | Время последнего обновления счетчиков. Формат: `2013-12-31 15:34:55`
+`totalNewSegNum`     | integer  | Общее количество сегментов со статусом `NEW`
+`totalAcceptdSegNum` | integer  | Общее количество сегментов со статусом `ACCEPTD`
+`totalDelivrdSegNum` | integer  | Общее количество сегментов со статусом `DELIVRD`
+`totalRejectdSegNum` | integer  | Общее количество сегментов со статусом `REJECTD`
+`totalExpiredSegNum` | integer  | Общее количество сегментов со статусом `EXPIRED`
+`totalUndelivSegNum` | integer  | Общее количество сегментов со статусом `UNDELIV`
+`totalDeletedSegNum` | integer  | Общее количество сегментов со статусом `DELETED`
+`totalUnknownSegNum` | integer  | Общее количество сегментов со статусом `UNKNOWN`
+`totalPdlivrdSegNum` | integer  | Общее количество сегментов со статусом `PDLIVRD`
+`totalSegNum`        | integer  | Общее кол-во сегментов в кампании. Обновляется при обработке (перед отправкой) сообщений/сегментов кампании.
+`totalNewMsgNum`     | integer  | Общее количество сообщений со статусом `NEW`
+`totalAcceptdMsgNum` | integer  | Общее количество сообщений со статусом `ACCEPTD`
+`totalDelivrdMsgNum` | integer  | Общее количество сообщений со статусом `DELIVRD`
+`totalRejectdMsgNum` | integer  | Общее количество сообщений со статусом `REJECTD`
+`totalExpiredMsgNum` | integer  | Общее количество сообщений со статусом `EXPIRED`
+`totalUndelivMsgNum` | integer  | Общее количество сообщений со статусом `UNDELIV`
+`totalDeletedMsgNum` | integer  | Общее количество сообщений со статусом `DELETED`
+`totalUnknownMsgNum` | integer  | Общее количество сообщений со статусом `UNKNOWN`
+`totalPdlivrdMsgNum` | integer  | Общее количество сообщений со статусом `PDLIVRD`
+`totalMsgNum`        | integer  | Общее количество сообщений (не сегментов). Обновляется при обработке (перед отправкой) сообщений/сегментов кампании.
+`totalNewMsgCost`    | float    | Общая стоимость всех сегментов со статусом `NEW`
+`totalAcceptdMsgCost`| float    | Общая стоимость всех сегментов со статусом `ACCEPTD`
+`totalDelivrdMsgCost`| float    | Общая стоимость всех сегментов со статусом `DELIVRD`
+`totalRejectdMsgCost`| float    | Общая стоимость всех сегментов со статусом `REJECTD`
+`totalExpiredMsgCost`| float    | Общая стоимость всех сегментов со статусом `EXPIRED`
+`totalUndelivMsgCost`| float    | Общая стоимость всех сегментов со статусом `UNDELIV`
+`totalDeletedMsgCost`| float    | Общая стоимость всех сегментов со статусом `DELETED`
+`totalUnknownMsgCost`| float    | Общая стоимость всех сегментов со статусом `UNKNOWN`
+`totalPdlivrdMsgCost`| float    | Общая стоимость всех сегментов со статусом `PDLIVRD`
+`totalCost`          | float    | Общая стоимость всех сегментов в кампании. Обновляется при обработке (перед отправкой) сообщений/сегментов кампании.
+`recipientsRejected` | integer  | Количество отклоненных получателей (не включенных в кампанию). Обновляется при обработке (перед отправкой) сообщений/сегментов кампании.
