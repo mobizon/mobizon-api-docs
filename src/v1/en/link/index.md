@@ -1,0 +1,1 @@
+Creation and management of the short links. Using the functions of this module, you can shorten long URLs to use them in your SMS campaigns.
