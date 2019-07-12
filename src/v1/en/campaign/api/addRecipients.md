@@ -4,9 +4,9 @@
 
 Within one request it is only allowed to send one of the following recipients’ data source:
 
-• list of numbers / contact card ID / contact ID
-• list of groups ID from the contact book
-• file with the list of recipients.
+- list of numbers / contact card ID / contact ID
+- list of groups ID from the contact book
+- file with the list of recipients.
 
 If you try to send several different types of recipients at once, the error {{API_INCORRECT_PARAM}} will be returned. 
 
@@ -26,35 +26,34 @@ Each number will be verified through sending of a message to it using the countr
 All non-verified numbers will be rejected with the corresponding error code (code), and for each added number the generated message ID (messageId) will be returned to enable further status request.
 
 If not all imported recipients were added successfully (some errors occurred), then the API returns one of the following response codes:
-• {{API_PARTIALLY_DONE}} - if not all recipients were added, but at least one recipient was verified
-• {{API_NOTHING_DONE}} - if no recipient was verified.
+- {{API_PARTIALLY_DONE}} - if not all recipients were added, but at least one recipient was verified
+- {{API_NOTHING_DONE}} - if no recipient was verified.
 
 While the recipients are being added, the campaign is blocked for any other adding recipients' request, therefore simultaneous import is impossible.
 
 
 #### Request parameters
 
- Parameter             | Type           | Description
+ Parameter             | Type          | Description
 -----------------------|---------------|-----------
 `id`                   | integer       | ID of the campaign, you want to add recipients to
-`recipients`           | array\|string | Regular campain recipients can be sent as a: <br> <ul> <li> string with recipient numbers separated by commas or line breaks; </ li> <li> one-dimensional array, where each element corresponds to one recipient number; </ li> <li> two-dimensional array, where each element is itself an array, containing an element with the `recipient` key and the recipient's number as a value. 
-</ li> </ ul> Template campaign recipients must be sent as a two-dimensional array, where each element is itself an array, containing an element with the `recipient` key and the recipient's number as a value, it can also include (but not necessarily) elements with keys corresponding to the names of variables (placeholders) in the SMS text (without surrounding curly braces). <br> At the same time, if any of the placeholders contained in text was not passed, then processing will go on depending on the passed parameter `placeholdersFlag` (see the flag description below). Examples of requests are listed below.
+`recipients`           | array\|string | Regular campain recipients can be sent as a:<br><ul><li> string with recipient numbers separated by commas or line breaks;</li><li>one-dimensional array, where each element corresponds to one recipient number;</li><li>two-dimensional array, where each element is itself an array, containing an element with the `recipient` key and the recipient's number as a value.</li></ul>Template campaign recipients must be sent as a two-dimensional array, where each element is itself an array, containing an element with the `recipient` key and the recipient's number as a value, it can also include (but not necessarily) elements with keys corresponding to the names of variables (placeholders) in the SMS text (without surrounding curly braces). <br> At the same time, if any of the placeholders contained in text was not passed, then processing will go on depending on the passed parameter `placeholdersFlag` (see the flag description below). Examples of requests are listed below.
 `recipientsCardIds`    | array\|string | The array or the string of the contact cards' IDs from the contact book, separated by comma or line break, which will form the future campaign.
 `recipientsContactIds` | array\|string | The array or the string of the contact' IDs from the contact book. <br>If the campaign is template, then in order to fill in the placeholders in the text  the data from the corresponding contact card, this contact belongs to, will be used. 
 `recipientsGroupIds`   | array\|string | The array or the string of the contact groups' IDs from the contact book, separated by comma or line break, which will form the future campaign.
-`recipientsFile`       | file          | The object of the file with the recipients is the **CSV** or **Excel** (only **XLS**) file with recipients' numbers in the international format. <br> For regular campaign the numbers are distributed one per line. <br> For template campaign numbers are distributed one by one in a row in any of the columns with the`recipient` header, other columns may contain placeholders. Column headers must correspond to the placeholders in the text of SMS (without surrounding curly braces). To name a placeholder use only Latin letters and numbers or characters `` _` ', `` -`'. If there are columns with the same headings, an error will be returned. <br> At the same time, if there are no corresponding columns for any of the placeholders contained in the text, then processing will occur depending on the `placeholdersFlag` value passed to the` params` parameter (see the flag description below).
-`params`               | array         | Advanced settings (see [Advanced settings] table (#add-recipients-params)).
+`recipientsFile`       | file          | The object of the file with the recipients is the **CSV** or **Excel** (only **XLS**) file with recipients' numbers in the international format. <br> For regular campaign the numbers are distributed one per line. <br> For template campaign numbers are distributed one by one in a row in any of the columns with the`recipient` header, other columns may contain placeholders. Column headers must correspond to the placeholders in the text of SMS (without surrounding curly braces). To name a placeholder use only Latin letters and numbers or characters '`_`' and '`-`'. If there are columns with the same headings, an error will be returned. <br> At the same time, if there are no corresponding columns for any of the placeholders contained in the text, then processing will occur depending on the `placeholdersFlag` value passed to the` params` parameter (see the flag description below).
+`params`               | array         | Advanced settings (see [Advanced settings](#add-recipients-params) table).
 
 #####  <span data-anchor="add-recipients-params">Advanced settings</span>
 
- Parameter                        | Type     | Description
------------------------------------|---------|-----------
+ Parameter             | Type     | Description
+-----------------------|----------|-----------
 `params[replace]`                  | integer | Indicates whether it is necessary to delete all already added recipients and to start adding again: <br> **0** - no, add recipients to previously added ones (default value); <br>**1** - yes, delete all before adding new ones;
-`params[placeholdersFlag]`         | integer | <br> Processing of the missing variables (placeholders) for the template campaign. <br> If no variable values for the placeholder are found, then one of the following scenario is possible: <br> **1** - the message is added to the campaign, but the placeholders remain in the text as they are (default scenario); <br> **2** — the message is added, but placeholders are deleted (if you just need to send, not to reject the message); <br> **3** — the message is rejected with an error indicating missing data for the placeholder in text; <br>
-`params[recipientsFileEncoding]`   | string  | Encoding in the recipient data file, available are the following encodings: **KOI8-R, CP866, WINDOWS-1252, WINDOWS-1251, UTF-8, ASCII, ISO-8859-1, UCS-2**, default is: **UTF -eight**.
-`params[recipientsFileSkipHeader]` | integer | Indicates whether it is necessary to skip the first line of the file and start processing from the second. Can be of use if recipients are uploaded from a file in which the first line contains the columns' names. In this case, it is better to skip the first line and start processing the file from the second one. Possible values are: <br> **0** - start from the first line (default value); <br> **1** - skip the first line of the file and start processing from the second (used by default within the template campaign); < br> For the template campaign the value of this parameter is always set to **1** and can't be redefined, since the first line must contain the names of the placeholder variables. <br>.
+`params[placeholdersFlag]`         | integer | Processing of the missing variables (placeholders) for the template campaign.<br>If no variable values for the placeholder are found, then one of the following scenario is possible:<br>**1** - the message is added to the campaign, but the placeholders remain in the text as they are (default scenario);<br>**2** — the message is added, but placeholders are deleted (if you just need to send, not to reject the message);<br>**3** — the message is rejected with an error indicating missing data for the placeholder in text.
+`params[recipientsFileEncoding]`   | string  | Encoding in the recipient data file, available are the following encodings: **KOI8-R, CP866, WINDOWS-1252, WINDOWS-1251, UTF-8, ASCII, ISO-8859-1, UCS-2**, default is: **UTF-8**.
+`params[recipientsFileSkipHeader]` | integer | Indicates whether it is necessary to skip the first line of the file and start processing from the second. Can be of use if recipients are uploaded from a file in which the first line contains the columns' names. In this case, it is better to skip the first line and start processing the file from the second one. Possible values are:<br>**0** - start from the first line (default value);<br>**1** - skip the first line of the file and start processing from the second (used by default within the template campaign); < br> For the template campaign the value of this parameter is always set to **1** and can't be redefined, since the first line must contain the names of the placeholder variables.
 `params[recipientsFileDelimiter]`  | string  | Column separator in the recipients; data file, by default: **,** (comma)
-`params[recipientsFileEnclosure]`  | string  | Text separator n the recipients; data file, by default: **'** (single quotes)
+`params[recipientsFileEnclosure]`  | string  | Text separator in the recipients data file, default: **'** (single quotes)
 
 #### Server response
 
