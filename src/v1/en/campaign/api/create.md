@@ -1,31 +1,33 @@
 ### Creating of a new campaign
 {{EXAMPLE_QUERY}}
 
-This method creates a new campaign with the specified parameters, then you can add recipients to it using the method of recipients' uploading.
+This method allows you to create a new [SMS-campaign](other#glossary-sms-campaign). 
+After creating a campaign, [add the recipients](#addRecipients) to it and then [send](#send) it.
 
 #### Request parameters
 
-data : array Campaign parameters (compulsory parameter)
+**data** `array` – Campaign parameters 
 
  Parameter                       | Type     | Description
 --------------------------------|---------|-----------
-`data[name]`                    | string  | Campaign name
-`data[text]`                    | string  | Full text of the message or template text with placeholders.<br>Placeholders should be framed with curly brackets {}, for placeholder text it is only allowed to use Latin letters and numbers or characters '`_`', '`-`', which will later be replaced with a unique text for each message. To create a template campaign, you also need to pass the appropriate campaign `type`. If there are short links in the text and the recipient tracking is enabled (`trackShortLinkRecipients` flag), those short links that need to be monitored should be framed with placeholders [[...]] (two square quotes). Such links will be replaced with links containing the recipient tracking code, and placeholders will be removed.<br>For example, a message with the text: "Simple short link - http://mbzn.co/FbT, link with recipient tracking - [[http://mbzn.co/FbT]" will be sent to the recipient's phone as:" Simple short link - http://mbzn.co/FbT, recipient tracking link - http://mbzn.co/XxDxSa2A". The recipient tracking code length is always fixed and equals to 8 characters.
-`data[type]`                    | integer | Campaign type, ***2*** - regular, ***3*** - template, default: 2. When creating template campaign type, do not forget to include placeholders in the text.
-`data[from]`                    | string  | Sender's signature, displayed on the recipient's phone.
-`data[rateLimit]`               | integer | Sending limit by the quantity of messages. It is used together with the `ratePeriod` parameter. Allows you to prolongate the campaign to provide gradual receipt of messages by subscribers.
-`data[ratePeriod]`              | integer | Sending limit by the time period. To be ignored, if `rateLimit` is not set or equals to ***0***.
-`data[deferredToTs]`            | string  | Date and time of the campaign, if you want to start sending at a specified time.It should start not later than in 14 days and not earlier than in an hour from the actual time. Format: `2013-12-31 15:34:55`
-`data[mclass]`                  | integer | ***0, 1, 2, 3***, default ***1*** - messages are saved to the Incoming messages folder in the phone, ***0*** - are displayed as a popup and are not saved (flashSMS), is supported not by all phones, ***2*** - are saved to SIM-card, ***3*** - SIM Toolkit SMS
-`data[ttl]`                     | integer | Message lifetime in minutes makes from 1 min to 3 days (4320 min) from the moment of sending (the parameter is only available for SMS campaigns)
-`data[trackShortLinkRecipients]`| integer | To track specified short links' recipients - ***1***, by default is not tracked - ***0***
+`data[name]`                    | string  | The name of the campaign.<br>Using this field, it is more convenient to navigate through the campaigns being created.<br>For example: «Black Friday» discounts» or «Negative account balance reminder».<br>The maximum length of the campaign name is 255 characters. 
+`data[text]`                    | string  | Text of SMS message to be sent.<br>For a [template campaign](other#glossary-template) (data[type]=3), this text must contain variables that will be replaced by values unique to each recipient. The variable should be written by symbols of a Latin letters, numbers and symbols `"_"`, `"-"`, and is framed in curly braces, for example: `{name}` or `{clientBalance} `.<br>In the text of the message you can use [short links](other#glossary-shortlink) and the [function of tracking recipients](other#glossary-recipienttracking) to find out which of the recipients followed your link. 
+`data[type]`                    | integer | Type of campaign:<br>`1` – Single message (sending to one number);<br>`2` – Mass campaign (set by default);<br>`3` – Template campaign (the text of the message can contain placeholders, which will be replaced with unique text for each recipient).
+`data[from]`                    | string  | [Sender's signature](other#glossary-sender-id).<br>To use the sender's own signature, it must be *registered* in advance.<br>If no signature is specified, the default signature or standard service signature will be used.
+`data[rateLimit]`               | integer | Limitation of the number of messages sent during the period of time specified in the field `ratePeriod`.<br>This option allows you to slow down the speed of sending a large SMS-campaign in order to distribute the load on your Call Center.<br>Send speed limit - no more than 100 messages per second in recalculation for per second sending.<br>Messages are sent at equal intervals, in packets of 10 pieces, based on the specified `rateLimit` for `ratePeriod`. For example, if you specify the speed of 600 and the period of 60, then every second will be sent 600/60 = 10 SMS.
+`data[ratePeriod]`              | integer |  Time period in seconds for which the quantity of SMS specified in the `rateLimit` field will be sent.<br>Maybe equal:<br>`60` – 1 minute;<br>`3600` – 1 hour;<br>`86400` – 1 day.
+`data[deferredToTs]`            | string  |  Date and time of the deferred sending of the campaign.<br>It is possible to set the beginning of sending not earlier than one hour, and not later than 14 days.<br>Format: `YYYY-MM-DD HH:MM:SS`. 
+`data[mclass]`                  | integer |  The class of the message that is being sent:<br>`0` – messages are displayed in a pop-up window and are not saved anywhere (flashSMS);<br>`1` – messages are saved in the phone's Inbox (set by default).
+`data[validity]`                | integer |  Maximum waiting time for the message to be delivered if the recipient cannot accept it immediately.<br>For example, if your phone is turned off or out of range.<br>It is specified in minutes from the moment of sending: from `60 ` (1 hour) to `1440 ` (24 hours).
+`data[trackShortLinkRecipients]`| integer |  [Function of tracking recipients](other#glossary-recipienttracking).<br>Available only if the text of the message (in the field `data[text]`) contains [short links](other#glossary-shortlink) created in *our service*.<br>`0` – do not use the function (set by default);<br>`1` – to use the function.
 
 #### Server response
 integer : campaign ID, if the campaign was successfully created
 
 
-#### Error codes
+#### API response codes
 
 Code | Description
 ----|----
+{{API_OK}}         | The campaign is successfully created.
 {{API_VALIDATION}} | If any of the parameters contains invalid values.
