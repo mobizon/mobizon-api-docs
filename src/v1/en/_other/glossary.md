@@ -1,22 +1,22 @@
-### Глоссарий
+### Glossary
 
-<span data-anchor="glossary-id">`ID`</span> – уникальный идентификатор, который позволяет однозначно определить искомый объект: кампанию, группу и т.д.
+<span data-anchor="glossary-id">`ID`</span> – a unique identifier that allows you to uniquely identify the object you are looking for: a campaign, a group, etc.
 
-<span data-anchor="glossary-contact-card">`Контактная карта`</span> – запись в Контактной книге, содержащая данные клиента, такие как: ФИО, email, дату рождения и другую информацию. 
-Обязательно должна содержать номер телефона.
+<span data-anchor="glossary-contact-card">`Contact card`</span> – an entry in the Contacts Book that contains customer information, such as: Name, email, date of birth and other information. 
+Must contain the phone number.
 
-<span data-anchor="glossary-sender-id">`Подпись отправителя (Sender ID, альфанумерическое имя)`</span> – отображается в качестве отправителя SMS на телефоне получателя вместо номера телефона.  
-К подписям отправителя существует [ряд требований](../../sender-id/sender-id).
+<span data-anchor="glossary-sender-id">`Sender's signature (Sender ID, alphanumeric name)`</span> – is displayed as the SMS sender on the recipient's phone instead of the phone number.  
+There are a *number of requirements* for the sender's signatures.
 
-<span data-anchor="glossary-shared-senderid">`Общая подпись (отправителя SMS)`</span> – одна из подписей сервиса, используемая при отправке сообщения, в случае, если у пользователя нет подписей или выбранная подпись недоступна для отправки на указанный номер телефона. 
+<span data-anchor="glossary-shared-senderid">`Shared signature (SMS sender's)`</span> – one of the service signatures used when sending a message, if the user has no signatures or the selected signature is not available for sending to the specified phone number. 
 
-<span data-anchor="glossary-recipient">`Получатель (абонент)`</span> – пользователь услуг мобильной связи, на номер которого происходит отправка SMS-сообщения.
+<span data-anchor="glossary-recipient">`Recipient (subscriber)`</span> – the user of the mobile communication service to whose number the SMS message is sent.
 
-<span data-anchor="glossary-shortlink">`Короткая ссылка`</span> – сокращенный (альтернативный) URL-адрес для доступа к WEB-странице. 
+<span data-anchor="glossary-shortlink">`Short link`</span> – an abbreviated (alternative) URL to access the WEB page. 
 
-Использование короткой ссылки вместо обычной минимизирует ненамеренное искажение URL – короткую ссылку легче запомнить, скопировать или ввести вручную. 
+Using a short link instead of the usual one minimizes unintended URL distortion - a short link is easier to remember copy or enter manually. 
 
-Статистические данные предоставляются в удобной форме: можно увидеть количество кликов за последние 2 часа, день, неделю, 30 дней или все время (детальнее см. в разделе [короткие ссылки](../../url-shortener/how-to-shorten-url)). 
+Statistics are provided in a convenient form: you can see the number of clicks for the last 2 hours, day, week, 30 days or all the time. 
 
 Также короткие ссылки удобно использовать в SMS. Они позволяют уменьшить стоимость отправки за счет меньшего количества символов в сообщении. 
 
