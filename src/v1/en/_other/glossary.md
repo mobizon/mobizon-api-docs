@@ -18,48 +18,48 @@ Using a short link instead of the usual one minimizes unintended URL distortion 
 
 Statistics are provided in a convenient form: you can see the number of clicks for the last 2 hours, day, week, 30 days or all the time. 
 
-Также короткие ссылки удобно использовать в SMS. Они позволяют уменьшить стоимость отправки за счет меньшего количества символов в сообщении. 
+Also short links are convenient to use in SMS. They allow you to reduce the cost of sending by reducing the number of characters in the message. 
 
-При использовании короткой ссылки, созданной в нашем сервисе, есть возможность задействовать функцию [отслеживания получателей](#glossary-recipienttracking), открывших ссылку.
+When using a short link created in our service, it is possible to use the [function of tracking recipients](#glossary-recipienttracking), who opened the link.
 
-<span data-anchor="glossary-personal-link">`Персональная ссылка (ссылка отслеживания получателя)`</span> – специальная короткая ссылка, созданная при помощи нашего сервиса и позволяющая отследить кто именно из получателей SMS-рассылки перешел по ней. Ссылка уникальна для каждого отдельного получателя SMS. 
+<span data-anchor="glossary-personal-link">`Personal link (recipient tracking link)`</span> – a special short link, created with the help of our service and allowing you to track which of the recipients of the SMS-campaign went to it. The link is unique for each individual SMS recipient. 
 
-<span data-anchor="glossary-recipienttracking">`Функция отслеживания получателей`</span> – инструмент сбора статистики о получателях, которые перешли по короткой ссылке, размещенной в сообщении. 
+<span data-anchor="glossary-recipienttracking">`Function of tracking recipients`</span> – a tool to collect statistics about recipients who went the short link posted in the message. 
 
-Это удобное и эффективное средство для аналитики целевой аудитории и оценки эффективности SMS-кампании.
+It is a convenient and effective tool for analyzing the target audience and evaluating the effectiveness of the SMS-campaign. 
 
-Функция доступна для SMS-сообщений, содержащих гиперссылки. Чтобы активировать функцию, необходимо в Форме Отправки SMS нажать кнопку замены обычной ссылки на короткую и проверить, стоит ли галочка напротив опции “отслеживать получателей”.  
+The function is available for SMS messages containing hyperlinks. In order to activate the function, it is necessary to press the button of replacing the usual link with a short one in the Send SMS form and check whether the checkmark is next to the «track recipients» option.  
 
-<span data-anchor="glossary-dlr">`Отчет о доставке сообщения (DLR)`</span> – информация от оператора связи о статусе доставки SMS-сообщения получателю. 
+<span data-anchor="glossary-dlr">`Message delivery report (DLR)`</span> – information from your service provider about the status of SMS delivery to the recipient. 
 
-<span data-anchor="glossary-form">`Форма`</span> – удобный инструмент для сбора данных о клиентах, проведения электронных опросов, формирования базы номеров для рассылки и множества других задач. 
+<span data-anchor="glossary-form">`Form`</span> – a convenient tool for collecting customer data, conducting electronic surveys, forming a database of numbers and many other tasks. 
 
-С помощью Форм ваши клиенты могут подписаться на SMS-рассылку, новости, акции и т.д.
+With the help of Forms your clients can subscribe to SMS-mailing, news, promotions, etc.
 
-Благодаря гибкому и интуитивно понятному конструктору полей вы можете легко создать Форму, максимально эффективную для ваших задач.
+Thanks to the flexible and intuitive field design, you can easily create a form that is as effective as possible for your tasks.
 
-Кроме того, вы можете настроить оформление Формы: выбрать цвет текста, кнопок, фона и т.д. 
-Подробнее о создании Форм вы можете узнать в разделе [“Формы”](../../forms/how-to-create-form).  
+In addition, you can customize the design of the form: choose the color of text, buttons, background, etc. 
+You can find out more about creating Forms in the *Forms* section.  
 
-<span data-anchor="glossary-sms-campaign">`SMS Кампания`</span> – позволяет сгруппировать множество получателей одного SMS и проанализировать результаты SMS-рассылки. 
+<span data-anchor="glossary-sms-campaign">`SMS Campaign`</span> – allows you to group multiple recipients of a single SMS and analyze the results of SMS-sending. 
 
-<span data-anchor="glossary-single-campaign">`Одиночная кампания`</span> – отправка сообщения на один номер.
+<span data-anchor="glossary-single-campaign">`Single campaign`</span> – send a message to one number.
 
-<span data-anchor="glossary-mass-campaign">`Массовая кампания`</span> – отправка сообщения на два и более номеров.
+<span data-anchor="glossary-mass-campaign">`Массовая кампания`</span> – send a message to two or more numbers.
 
-<span data-anchor="glossary-functional-campaign">`Функциональная (служебная) кампания`</span> – в нее входят функциональные или, другими словами, служебные сообщения системы, например, сообщения с кодом подтверждения номера из форм.
+<span data-anchor="glossary-functional-campaign">`Functional (service) campaign`</span> – it includes functional or, in other words, service messages of the system, for example, messages with number confirmation code from forms.
 
-<span data-anchor="glossary-template">`Шаблонная кампания`</span> – тип SMS-кампании, в которой используется особая форма сообщения, содержащая плейсхолдеры, которые заменяются на персональный для каждого получателя текст.
+<span data-anchor="glossary-template">`Template campaign`</span> – type of SMS-campaign, which uses a special form of message containing playholders, which are replaced by personal text for each recipient.
 
-**Пример шаблона**
+**Example template**
 
-В фигурных скобках {} размещены плейсхолдеры.  
+Placeholders are placed in curly brackets {}.  
 
-Шаблонный текст с плейсхолдерами      | Текст, который будет доставлен получателю    
+Template text with pleiseholders      | The text that will be delivered to the recipient   
 -----------------|---------
-Здравствуйте, {name}! Ваш баланс на {date} составляет {balance}{currency}.     | Здравствуйте, Иван! Ваш баланс на 12.09.2019 составляет 15.50 грн.  
-{name}, машина подъехала ({carNumber}). Телефон водителя: {driverPhone}.    | Алексей, машина подъехала (АА 4444). Телефон водителя: 099 999 99 99.
-Напоминаем, что вы записаны на прием в {place}. Дата приема: {date}.    | Напоминаем, что вы записаны на прием в Клинике 11.11.2019 на 11:30.  
+Hello, {name}! Your balance on {date} is {balance}{currency}.    | Hello, Nick! Your balance on 12.09.2019 is USD 15.50. 
+{name}, the car has arrived. Driver's phone: {driverPhone}.    | Alex, the car has arrived (GKR 444). Driver's phone: 099 999 99 99.
+We remind you that you have an appointment at the {place}. Reception Date: {date}.    | We remind you that you have an appointment at the Clinic. Reception Date: 11.11.2019 at 11:30.  
 
 
 
