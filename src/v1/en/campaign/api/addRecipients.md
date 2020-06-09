@@ -68,7 +68,7 @@ Field            | Type     | Description
 `contactId`     | integer | The identifier of the added contact (when `recipientsContactIds` was sent)
 `contactCardId` | integer | The identifier of the added contact card(when `recipientsCardIds`was sent)
 
-When you upload a recipients' file or a list of contact groups, the numeric identifier of the background  recipients' adding task is returned. Details for tasks servicing are to be checked [here](taskqueue).
+When you upload a recipients' file or a list of contact groups, the numeric identifier of the background  recipients' adding task is returned. Details for tasks servicing are to be checked [here](/en/help/api-docs/taskqueue).
 
 #### Error codes
 
@@ -80,7 +80,7 @@ Code                     | Description
 {{API_INCORRECT_PARAM}}  | If none of the recipients type is sent or multiple types of recipients are sent in a single request. 
 {{API_PARTIALLY_DONE}}   | If at least one of all sent recipients is not added to the campaign. 
 {{API_NOTHING_DONE}}     | If in the query processing result none of the recipients is added to the campaign.
-{{API_BACKGROUND_WAIT}}  | If the background recipients' adding task was started. Details for tasks servicing are to be checked [here](taskqueue).
+{{API_BACKGROUND_WAIT}}  | If the background recipients' adding task was started. Details for tasks servicing are to be checked [here](/en/help/api-docs/taskqueue).
 
 #### Examples
 
