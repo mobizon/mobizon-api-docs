@@ -6,7 +6,7 @@ The method accepts both a string with one message ID and an array of message IDs
 
 #### List of possible message statuses
 
-See [List of possible statuses of messages](other#SmsStatus) table.
+See [List of possible statuses of messages](/en/help/api-docs/other#SmsStatus) table.
 
 #### Request parameters
 
