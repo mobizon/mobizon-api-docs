@@ -2,7 +2,7 @@
 {{EXAMPLE_QUERY}}
 
 This method allows you to create a new [SMS-campaign](/en/help/api-docs/other#glossary-sms-campaign).
-After creating a campaign, [add the recipients](#addRecipients) to it and then [send](#send) it.
+After creating a campaign, [add the recipients](#AddRecipients) to it and then [send](#Send) it.
 
 #### Request parameters
 
