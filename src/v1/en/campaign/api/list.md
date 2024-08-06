@@ -1,135 +1,88 @@
-### Receipt of the campaigns list
+### Getting Campaign List
 {{EXAMPLE_QUERY}}
 
-If the filter by campaign creation date or the launch date is not set, then the system automatically sets the filter by creation date for the last 24 hours from the current time(from 00:00:00 of the last 24 hours to the current moment by the user's time). The maximum sampling interval by creation date/launch date makes 90 days when trying to search for a longer interval only the results for the last 90 days before the date of the end of the search interval will return. If you set the start date or the end date only, the second date will be calculated and installed automatically at a distance of 90 days from the set one. If the date range is invalid (the end date is greater than the start date), then the result will be empty. When installing only dates, the time is set automatically - for start dates to `00:00:00`, and for end dates to `23:59:59` according to user timezone settings.
+This method allows you to get a list of created campaigns. The search can be performed by [ID](/en/help/api-docs/other#glossary-id) and other fields.
 
-#### Request parameters
 
- Parameter       | Type    | Description
+#### Request Parameters
+
+ Parameter        | Type     | Description
 -----------------|---------|-----------
-`criteria`       | array   | Search criteria (see [Search criteria](#list-criteria))
-`pagination`     | array   | Pagination display options (see [Pagination display options](#list-pagination))
-`sort`           | array   | Sorting options (see [Sorting options](#list-sort))
+`criteria`       | array   | Search criteria (see the table [Search Criteria](#list-criteria)).
+`pagination`     | array   | Pagination parameters (see the table [Pagination Parameters](#list-pagination)).
+`sort`           | array   | Sorting parameters (see the table [Sorting Parameters](#list-sort)).
 
-##### <span data-anchor="list-criteria">Search criteria</span>
 
-Parameter                  | Type    | Description
+#### <span data-anchor="list-criteria">Search Criteria</span>
+The following are the fields by which the search is performed.
+The search can be done by one or several fields simultaneously.
+
+ Parameter                  | Type     | Description
 ---------------------------|---------|-----------
-`criteria[id]`             | integer | Search for # campaign (if this parameter is set, then the compulsory limit by creation date is not used and the search is performed on all campaigns ever created)
-`criteria[ids]`            | array   | Search for campaign IDs, the parameter should be passed as an array or IDs string, separated by commas,<br>maximum IDs number makes 10, if this limit is exceeded, the search will occur on the first 10 from the list.<br>(if this parameter is set, then the compulsory limit by creation date is not used and the search is performed on all campaigns ever created)
-`criteria[recipient]`      | string  | Search for recipient's number
-`criteria[from]`           | string  | Search for sender's signature (alfaname)
-`criteria[text]`           | string  | Search for text of the campaign
-`criteria[status]`         | string  | Search for campaign status; the list of possible statuses see in documentation
-`criteria[createDateFrom]` | string  | Search for campaign creation date, starting from the specified date (date format `YYYY-MM-DD`)
-`criteria[createTimeFrom]` | string  | Search for campaign creation date, starting from the specified date, taking into account the exact time on this day (time format `HH:MM:SS`) - if the date is not specified, this field is to be ignored
-`criteria[createDateTo]`   | string  | Search for campaign creation date before the specified date (date format `YYYY-MM-DD`)
-`criteria[createTimeTo]`   | string  | Search for campaign creation date before the specified date, taking into account the exact time on this day (time format `HH:MM:SS`) - if the date is not specified, this field is to be ignored
-`criteria[sentDateFrom]`   | string  | Search for campaign launch date, starting from the specified date (date format `YYYY-MM-DD`)
-`criteria[sendTimeFrom]`   | string  | Search for campaign launch date, starting from the specified date, taking into account the exact time on this day (time format `HH:MM:SS`) - if the date is not specified, this field is to be ignored
-`criteria[sentDateTo]`     | string  | Search for campaign launch date before the specified date (date format `YYYY-MM-DD`)
-`criteria[sentTimeTo]`     | string  | Search for campaign launch date before the specified date, taking into account the exact time on this day (time format `HH:MM:SS`) - if the date is not specified, this field is to be ignored
-`criteria[type]`           | integer | Search for campaign type; the list of available campaign types see in documentation
+`criteria[id]`             | integer | Search for a single campaign by its [ID](/en/help/api-docs/other#glossary-id).
+`criteria[ids]`            | array   | Search for multiple campaigns by their [ID](/en/help/api-docs/other#glossary-id).<br>The parameter must be passed as an array or a string of comma-separated identifiers.<br>The maximum number of identifiers is 100; if this limit is exceeded, the search will be performed for the first 100 IDs in the list.
+`criteria[recipient]`      | string  | Search by recipient's phone number or part of it.<br>For example:<br>**{widget:example-phone}** – will find all campaigns in which this number participated;<br>**38097** – will find all campaigns with numbers containing the specified digit combination.<br>Only one number can participate in the search.
+`criteria[from]`           | string  | Search by [sender ID](/en/help/api-docs/other#glossary-sender-id) used in the campaign.
+`criteria[text]`           | string  | Search by campaign message text.<br>Performed based on the complete match of the search value.
+`criteria[status]`         | string  | Search by [campaign status](#list-campaign-statuses).
+`criteria[createTsFrom]`   | string  | Search for campaigns created from the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`criteria[createTsTo]`     | string  | Search for campaigns created up to the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`criteria[sentTsFrom]`     | string  | Search for campaigns sent from the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`criteria[sentTsTo]`       | string  | Search for campaigns sent up to the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`criteria[type]`           | integer | Search by campaign type:<br>**1** – Single message (sent to one number);<br>**2** – Mass mailing (default);<br>**3** – Template campaign (the message text may contain placeholders that will be replaced with text unique to each recipient).
+`criteria[groups]`         | string  | Search by identifiers of [contact groups](/en/help/contact-book/contact-groups) used in the campaign.<br>The parameter must be passed as an array or a string of comma-separated identifiers.
 
-##### <span data-anchor="list-pagination">Pagination display options</span>
 
-Parameter                 | Type    | Description
+#### <span data-anchor="list-pagination">Pagination Parameters</span>
+These parameters are intended for structured (partial) output of the requested information.
+
+ Parameter                 | Type     | Description
 --------------------------|---------|-----------
-`pagination[pageSize]`    | integer | Number of visible elements on the page
-`pagination[currentPage]` | integer | Current page
+`pagination[pageSize]`    | integer | Number of items displayed per page (25, 50, 100).
+`pagination[currentPage]` | integer | Current page.<br>Page numbering starts from 0.
 
-##### <span data-anchor="list-sort">Sorting options</span>
 
-Parameter         | Type    | Description
-------------------|---------|-----------
-`sort[id]`        | integer | Campaign ID
-`sort[recipient]` | string  | Recipient's number
-`sort[from]`      | string  | Sender's signature
-`sort[text]`      | string  | Campaign text
-`sort[status]`    | string  | Campaign status
-`sort[type]`      | integer | Campaign type
+#### <span data-anchor="list-sort">Sorting Parameters</span>
+These parameters allow you to sort the search results by one of the fields in ascending (ASC) or descending (DESC) order.
 
-#### Server response
+***For example:***
 
-Data array
+Sort by campaign creation date in ascending order – `sort[createTs]=ASC`.<br>
+Sort by campaign [ID](/en/help/api-docs/other#glossary-id) in descending order – `sort[id]=DESC`.
 
-Field            | Type    | Description
+ Parameter                     | Description
+------------------------------|----------
+`sort[id]`                    | Sort by campaign [ID](/en/help/api-docs/other#glossary-id).
+`sort[name]`                  | Sort by campaign name.
+`sort[from]`                  | Sort by sender ID.
+`sort[counters.totalMsgNum]`  | Sort by the number of phone numbers in the campaign.
+`sort[counters.totalCost]`    | Sort by campaign cost.
+`sort[createTs]`              | Sort by campaign creation date and time.
+`sort[startSendTs]`           | Sort by campaign send start date and time.
+`sort[endSendTs]`             | Sort by campaign send end date and time.
+
+
+#### Server Response
+
+Contains an array of two fields:
+
+ Field            | Type     | Description
 -----------------|---------|-----------
-`items`          | array   | List of found campaigns (see [Campaigns' list](#list-items))
-`totalItemCount` | integer | Total number of the elements found
+`items`          | array   | List of found campaigns.<br>For a description of the campaign fields, see the description of the [campaign/getInfo](#GetInfo) method.
+`totalItemCount` | integer | Total number of found items.
 
-##### <span data-anchor="list-items">List of campaigns</span>
 
-Every campaign contains the following fields:
-
- Field                | Type    | Description
-----------------------|---------|-----------
- `userId`             | integer | User ID
- `partnerId`          | integer | Partner ID
- `type`               | integer | Campaign type
- `name`               | string  | Campaign name
- `msgType`            | integer | Message type
- `from`               | string  | Sender's signature
- `text`               | string  | Message text or template in case of template campaign
- `startTs`            | string  | Campaign start time
- `createTs`           | string  | Time of creation
- `rateLimit`          | integer | Sending limit by quantity
- `ratePeriod`         | integer | Time period for quantity limit
- `status`             | integer | Current campaign status. See [List of possible campaign statuses](#list-campaign-statuses) for details.
- `creationWay`        | integer | Method of campaign creation: `1 - WEB`,`3 - SMPP`, `5 - system` (e.g. SMS with confirmation code for the form)
- `isDeleted`          | integer | Campaign deleted: `1 - yes`, `0 - no` 
- `extra`              | string  | Serialized parameters' value (`udh`, `ttl`, `mclass`)
- `groups`             | string  | Campaign recipients' groups
- `counters`           | object  | Different campaign counters. See below for details
- 
- ##### `counters` object fields
-  
- Field                | Type     | Description
- ---------------------|----------|-----------
- `updateTs`           | datetime | Last counters update time. Format: `2013-12-31 15:34:55`
- `totalNewSegNum`     | integer  | Total number of segments with `NEW` status
- `totalAcceptdSegNum` | integer  | Total number of segments with `ACCEPTD` status
- `totalDelivrdSegNum` | integer  | Total number of segments with `DELIVRD` status
- `totalRejectdSegNum` | integer  | Total number of segments with `REJECTD` status
- `totalExpiredSegNum` | integer  | Total number of segments with `EXPIRED` status
- `totalUndelivSegNum` | integer  | Total number of segments with `UNDELIV` status
- `totalDeletedSegNum` | integer  | Total number of segments with `DELETED` status
- `totalUnknownSegNum` | integer  | Total number of segments with `UNKNOWN` status
- `totalPdlivrdSegNum` | integer  | Total number of segments with `PDLIVRD` status
- `totalSegNum`        | integer  | Total number of segments in the campaign. Updates when processing (before sending) messages/campaign segments.
- `totalNewMsgNum`     | integer  | Total number of messages with `NEW` status
- `totalAcceptdMsgNum` | integer  | Total number of messages with `ACCEPTD` status
- `totalDelivrdMsgNum` | integer  | Total number of messages with `DELIVRD` status
- `totalRejectdMsgNum` | integer  | Total number of messages with `REJECTD` status
- `totalExpiredMsgNum` | integer  | Total number of messages with `EXPIRED` status
- `totalUndelivMsgNum` | integer  | Total number of messages with `UNDELIV` status
- `totalDeletedMsgNum` | integer  | Total number of messages with `DELETED` status
- `totalUnknownMsgNum` | integer  | Total number of messages with `UNKNOWN` status
- `totalPdlivrdMsgNum` | integer  | Total number of messages with `PDLIVRD` status
- `totalMsgNum`        | integer  | Total number of messages (not segments). Updates when processing (before sending) messages/campaign segments.
- `totalNewMsgCost`    | float    | Total cost of all segments with `NEW` status
- `totalAcceptdMsgCost`| float    | Total cost of all segments with `ACCEPTD` status
- `totalDelivrdMsgCost`| float    | Total cost of all segments with `DELIVRD` status
- `totalRejectdMsgCost`| float    | Total cost of all segments with `REJECTD` status
- `totalExpiredMsgCost`| float    | Total cost of all segments with `EXPIRED` status
- `totalUndelivMsgCost`| float    | Total cost of all segments with `UNDELIV` status
- `totalDeletedMsgCost`| float    | Total cost of all segments with `DELETED` status
- `totalUnknownMsgCost`| float    | Total cost of all segments with `UNKNOWN` status
- `totalPdlivrdMsgCost`| float    | Total cost of all segments with `PDLIVRD` status
- `totalCost`          | float    | Total cost of all segments of the campaign. Updates when processing (before sending) messages/campaign segments.
- `recipientsRejected` | integer  | Number of rejected recipients (not included in the campaign). Updates when processing (before sending) messages/campaign segments.
-
-##### <span data-anchor="list-campaign-statuses">List of possible campaign statuses</span>
+##### <span data-anchor="list-campaign-statuses">Campaign Statuses</span>
 
 Status              | Description
 --------------------|-------------------------------
-NEW                 | The campaign has been created, but the user has not yet sent it. Adding recipients is allowed in this status.
-MODERATION          | Waiting for the moderator to check for compliance with the service rules.
-DECLINED            | Rejected by the moderator because it does not comply with the service rules or the requirements of operators whose numbers are present in the campaign.
-READY_FOR_SEND      | The campaign is accepted and will be sent.
-AUTO_READY_FOR_SEND | The campaign does not need moderation and will be sent.
-NOT_YET_SENT        | Status for the search. Includes all statuses while a campaign has not yet been sent. Campaigns cannot have this status.
-RUNNING             | The campaign is being sent.
-DEFERRED            | Campaign is deferred and will be sent at the specified time.
-SENT                | All messages have been sent to operators and are waiting for statuses.
-DONE                | All statuses have been received or reached the maximum status pending time for all SMS and statuses have not been received (default is 24 hours). Once this status is set, no campaign counters are changed.
+NEW                 | The campaign is created, but the user has not sent it yet.<br>Adding recipients is allowed in this status.
+MODERATION          | Under moderation to comply with the service rules.
+DECLINED            | Declined by the moderator as it does not comply with the service rules or the requirements of the operators whose numbers are present in the campaign.
+READY_FOR_SEND      | The campaign is ready to be sent, but the sending has not started yet.
+AUTO_READY_FOR_SEND | No moderation is required. The campaign will be sent without moderation.
+NOT_YET_SENT        | Includes all statuses when the campaign has not yet been sent.<br>**This value is used only for search. Campaigns cannot have it.**
+RUNNING             | The campaign is running, the sending process to the operator is ongoing.
+DEFERRED            | The campaign send is scheduled for a specific time.<br>**This value is used only for search. Campaigns cannot have it.**
+SENT                | The campaign is fully sent, but not all messages have received a delivery report from the mobile operators yet.
+DONE                | The campaign is fully processed, all final delivery reports have been received.<br>After this status is set, no campaign counters are changed.

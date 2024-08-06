@@ -1,30 +1,31 @@
-### Short link's data editing
+### Editing Short Link Data
 {{EXAMPLE_QUERY}}
 
-#### Request parameters
+This method allows you to change the parameters of a created short link.
 
- Parameter | Type    | Description
+#### Request Parameters
+
+ Parameter  | Type     | Description
 -----------|---------|-----------
-`id`       | integer | Link ID
-`data`     | integer | Link parameters (see [Link parameters](#update-data)).
+`id`       | integer | Link identifier.
+`data`     | integer | Editable link parameters specified in the table [Link Parameters](#update-data).
 
-#### <span data-anchor="update-data">Link parameters</span>
+#### <span data-anchor="update-data">Link Parameters</span>
 
-  Parameter           | Type    | Description
+ Parameter             | Type     | Description
 ----------------------|---------|-----------
-`data[status]`        | integer | Link status (***0*** - inactive, ***1*** - active)
-`data[expirationDate]`| date    | Link expiry date (in format `YYYY-MM-DD`), by default is not limited
-`data[comment]`       | string  | Comment on link
+`data[status]`        | integer | Status of the short link:<br>**0** – link inactive;<br>**1** – link active.
+`data[expirationDate]`| date    | Expiration date of the short link.<br>Format: `YYYY-MM-DD`.<br>If the value is not provided, the link will be valid indefinitely.
+`data[comment]`       | string  | Comment on the link.<br>Maximum comment length is 255 characters.
 
-#### Server response
+#### Server Response
 
-string : Short link
+`string` – Short link.
 
-#### Errors codes
+#### API Response Codes
 
-
-Code| Description
-----|----
-{{API_VALIDATION}} | If any parameter contains invalid values.
-{{API_RECORD_NOT_FOUND}} | If the link with specified ID was not found.
-
+Code                      | Description
+-------------------------|----
+{{API_OK}}               | Parameters successfully changed.
+{{API_VALIDATION}}       | If any parameters contain invalid values.
+{{API_RECORD_NOT_FOUND}} | If the link with the specified identifier is not found.

@@ -4,7 +4,7 @@ return [
     'postParams'    => [
         'code' => [
             'value'       => 'zxc',
-            'description' => 'link short code'
+            'description' => 'short link code'
         ]
     ]
 ];

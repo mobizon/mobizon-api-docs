@@ -5,8 +5,8 @@ return [
         'data' => [
             'value'       => [
                 'fullLink' => [
-                    'value'       => 'http://mobizon.kz',
-                    'description' => 'original long link'
+                    'value'       => 'http://mobizon.com',
+                    'description' => 'full link'
                 ],
                 'status' => [
                     'value'       => 1,
@@ -17,8 +17,8 @@ return [
                     'description' => 'link expiration date'
                 ],
                 'comment' => [
-                    'value'       => 'Link to Christmass PR landing',
-                    'description' => 'link comment'
+                    'value'       => 'Comment on the link',
+                    'description' => 'comment on the link'
                 ]
             ]
         ]

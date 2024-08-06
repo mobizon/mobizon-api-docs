@@ -9,11 +9,11 @@ return [
                 2 => ['value' => 567]
             ],
             'ignoreKeys'  => true,
-            'description' => 'short link IDs'
+            'description' => 'link identifiers'
         ],
         'type'     => [
             'value'       => 'monthly',
-            'description' => 'statistics type'
+            'description' => 'type of statistics'
         ],
         'criteria' => [
             'value'       => [

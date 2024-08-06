@@ -1,38 +1,44 @@
-### Getting link's statistics
+### Retrieving Click Statistics for Links
 {{EXAMPLE_QUERY}}
 
-#### Request parameters
+This method is designed to retrieve click statistics for one or more short links by their [ID](/en/help/api-docs/other#glossary-id).
 
- Parameter   | Type    | Description
+Data can be grouped by months, days, hours, minutes.
+
+#### Request Parameters
+
+ Parameter          | Type     | Description
 -------------------|---------|-------------
-`ids`              | array   | Links' IDs (maximum links number makes 5)
-`type`             | string  | Statistic's type, possible values:<br>**monthly** - number of clicks and redirects on monthly basis, the maximum interval for getting statistics - 3 years<br>**daily** - number of clicks and redirects on daily basis, the maximum interval for obtaining statistics - 90 days<br>**hourly** - number of clicks and redirects on an hourly basis, the maximum interval for getting statistics - 1 week<br>**minute** - number of clicks and redirects by the minute, the maximum interval for getting statistics - 3 hours.
-`criteria`         | array   | Search criteria (see [Search criteria](#get-stats-criteria)).
+`ids`              | array   | Link identifiers.<br>Maximum number of [IDs](/en/help/api-docs/other#glossary-id) in a request – 5.<br>Parameter syntax: `ids[]` for each identifier.
+`type`             | string  | Type of requested statistics.<br>Allows you to get data in various time intervals:<br>**monthly** – number of clicks per month. Maximum interval for retrieving statistics – 3 years;<br>**daily** – number of clicks per day. Maximum interval for retrieving statistics – 90 days;<br>**hourly** – number of clicks per hour. Maximum interval for retrieving statistics – 1 week;<br>**minute** – number of clicks per minute. Maximum interval for retrieving statistics – 3 hours.
+`criteria`         | array   | Search criteria (See table [Search Criteria](#get-stats-criteria)).
 
-#### <span data-anchor="get-stats-criteria">Search criteria</span>
+#### <span data-anchor="get-stats-criteria">Search Criteria</span>
 
- Parameter   | Type    | Description
+Statistical data retrieval is based on the specified date and time.
+
+ Parameter            | Type     | Description
 ---------------------|---------|-------------
-`criteria[dateFrom]` | string  | Retrieve statistics since<br>(date and time in a format `YYYY-MM-DD HH:ММ:SS`)
-`criteria[dateTo]`   | string  | Retrieve statistics before<br>(date and time in a format `YYYY-MM-DD HH:ММ:SS`)
+`criteria[dateFrom]` | string  | Retrieve statistics starting from the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`criteria[dateTo]`   | string  | Retrieve statistics up to the specified date and time.<br>Format: `YYYY-MM-DD HH:MM:SS`.
 
-For time statistics **monthly**, **daily**, **hourly**, **minute**:
-if search criteria `dateFrom` and `dateTo` are not set, the statistics will be retrieved for the last maximum possible interval.
-if only the criterion `dateFrom` is set, or the period of time between `dateFrom` and `dateTo` exceeds maximum possible interval,
-the statistics will be retrieved for the last maximum possible interval, starting with the date `dateFrom`,
-if only one criterion `dateTo` is set, the statistics will be retrieved for the last maximum possible interval before the date`dateTo`
+**Important**: if the search criteria `dateFrom` and `dateTo` are not set, the `type` field statistics will be retrieved for the last maximum possible interval.
 
-#### Server response
-Data array
+If only one criterion `dateFrom` is set or the time interval between `dateFrom` and `dateTo` exceeds the maximum allowed interval, statistics will be retrieved for the maximum allowed interval starting from the `dateFrom` date.
 
-Field              | Type     | Description
+If only the `dateTo` criterion is set, statistics will be retrieved for the maximum possible period up to the `dateTo` date.
+
+#### Server Response
+Array of data:
+
+Field               | Type     | Description
 -------------------|---------|-------------
-`items`            | array   | Statistical data
-`totals`           | string  | Counters
+`items`            | array   | Statistical data.
+`totals`           | string  | Total number of clicks for the requested period.
 
-
-#### Errors codes
+#### API Response Codes
 
 Code | Description
 ----|----
-{{API_INCORRECT_PARAM}}  | If more than 5 link IDs are specified or the statistics' type is invalid
+{{API_OK}}  | Statistics successfully retrieved.
+{{API_INCORRECT_PARAM}}  | If more than 5 link identifiers are specified or the type of statistics is incorrectly specified.

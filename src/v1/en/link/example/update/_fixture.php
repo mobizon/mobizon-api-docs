@@ -4,7 +4,7 @@ return [
     'postParams'    => [
         'id'   => [
             'value'       => 123,
-            'description' => 'short link ID'
+            'description' => 'link identifier'
         ],
         'data' => [
             'value' => [

@@ -5,7 +5,7 @@ return [
     'postParams'   => [
         'id' => [
             'value'       => 123,
-            'description' => 'background task ID'
+            'description' => 'background task identifier'
         ],
     ]
 ];

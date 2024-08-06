@@ -13,7 +13,7 @@ return [
                     'description' => 'sender ID'
                 ],
                 'text' => [
-                    'value'       => 'Hello {name}! Your balance by {date} is {balance}{currency}.',
+                    'value'       => 'Hello, {name}! Your balance on {date} is {balance}{currency}.',
                     'description' => 'message text'
                 ]
             ],
@@ -21,6 +21,7 @@ return [
         ]
     ]
 ];
+
 
 
 

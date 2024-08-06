@@ -1,1 +1,1 @@
-Getting information about the tasks in an asynchronous queue.
+Getting information about tasks in the asynchronous task queue

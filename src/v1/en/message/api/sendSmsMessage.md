@@ -1,39 +1,41 @@
-### Sending of a single message
+### Sending a Single SMS Message
 {{EXAMPLE_QUERY}}
-This message allows to send a single message to a specified mobile phone number. 
 
+This method allows you to send a single SMS message to a specified mobile phone number.
 
-#### Request parameters
+#### Request Parameters
 
-  Parameter | Type    | Description 
+ Parameter   | Type    | Description  
 ------------|--------|-----------
-`recipient` | string | SMS message recipient - number in international format, if the number contains `+` in the beginning, it should be encoded in the URL entity `%2B` or delete, leaving numbers only.
-`text`      | string | SMS message text, encoded in the URL entity. If whilst attempting to send a message using a GET request, the system does not return the response with the message data, you should first check the presence of special characters in the request body, such as: `? / \ & + `and` [space] `.
-`from`      | string | Sender's signature. It is ok not to specify it, then in case there isn't any valid signature, the general system signature will be used. <br>`Note:` The signature may be different for each operator and may be changed without a prior notice at any time. If there are any confirmed signatures, the one, for which the "By default" flag is set, will be used.
-`params`    | array  | Advanced settings (see [Advanced settings](#send-sms-message-params)).
+`recipient` | string | The recipient's phone number for the SMS message.<br>The number must be in international format and contain only digits.<br>For example: {widget:example-phone}.<br>If the number has a `“+”` at the beginning, it should be encoded as `%2B` or removed, leaving only digits.
+`text`      | string | The text of the SMS message, encoded in [URL encoding](/en/help/api-docs/other#urlencode).<br>If the system does not return a response with message data when attempting to send a message using a GET request, first check for special characters in the request body, such as: `?` `/` `\` `&` `+` and `[space]`.<br>The presence of such characters indicates that the text was not [encoded](/en/help/api-docs/other#urlencode).
+`from`      | string | [Sender ID](/en/help/api-docs/other#glossary-sender-id).<br>To use your own sender ID, it must first be [registered](/en/help/sender-id/sender-id).<br>If the sender ID is not specified, the default sender ID selected in your account will be used.<br>If you do not have registered sender IDs or it is not possible to send with the specified sender ID, one of the [shared service sender IDs](/en/help/api-docs/other#glossary-shared-senderid) will be used if possible.<br>For more details about sender IDs, see the [“Sender IDs”](/en/help/api-docs/other#glossary-sender-id) section.
+`params`    | array  | Additional parameters (see the table [Additional Parameters](#send-sms-message-params)).
 
 
-#### <span data-anchor="send-sms-message-params">Advanced settings</span>
+#### <span data-anchor="send-sms-message-params">Additional Parameters</span>
 
- Parameter             | Type    | Description
+Parameter               | Type     | Description
 -----------------------|---------|-------------
-`params[name]`         | string  | Name fo the campaign
-`params[deferredToTs]` | string  | Date and time of the campaign, if it is necessary to postpone the campaign until the specified time. Should start not later than 14 days and not earlier than an hour from the current time. Format: 2013-12-31 15:34:55
-`params[mclass]`       | integer | The method of SMS processing by a mobile device. <br>***0*** - are displayed as a popup and are not saved (flashSMS), *is supported not by all phones*;<br>***1*** *(by default)*  - messages are saved to the `Incoming messages` folder in the recipient's phone;<br>***2*** - are saved to SIM-card;<br>***3*** - SIM Toolkit SMS
-`params[validity]`     | integer | SMS message expiration time in minutes makes from 1 min to 3 days (4320 min) from the moment of sending. By default: 1440 (24 hours)
+`params[name]`         | string  | Campaign name.
+`params[deferredToTs]` | string  | Date and time of deferred SMS message sending.<br>You can set the start of sending no earlier than one hour and no later than 14 days.<br>Format: `YYYY-MM-DD HH:MM:SS`.
+`params[mclass]`       | integer | Class of the sent message:<br>**0** – messages are displayed as a pop-up and not saved anywhere (flashSMS);<br>**1** – messages are saved in the phone's Inbox folder (default).
+`params[validity]`     | integer | Maximum waiting time for message delivery if the recipient cannot receive it immediately.<br>For example, if the recipient's phone is turned off or out of network coverage.<br>Specified in minutes from the moment of sending: from 60 minutes (1 hour) to 1440 minutes (24 hours).
 
 
-#### Server response
+#### Server Response
+In case of successful message sending, the response contains an array with the following fields:
 
-Field              | Type    | Description
+Field               | Type     | Description
 -------------------|---------|-------------
-campaignId         | integer | SMS campaign ID (using it, you can later check various parameters of the campaign, request a list of segments, their statuses and other information of the campaign module)
-messageId          | integer | SMS message ID (using it, you can check the message delivery status with a help of [message::getsmsstatus](#GetSMSStatus)
-status             | integer | SMS campaign sending status .<br>***1*** - campaign awaits moderation,<br>***2*** - campaign was sent without prior moderation
+campaignId         | integer | ID of the created SMS campaign.
+messageId          | integer | ID of the created SMS message.
+status             | integer | Status of the SMS campaign sending.<br>**1** – campaign awaiting moderation;<br>**2** – campaign sent without moderation.
 
 
-#### Errors codes
+#### API Response Codes
 
 Code | Description
 ----|----
-{{API_VALIDATION}} | If at least one parameter is invalid 
+{{API_OK}}         | SMS message successfully sent.
+{{API_VALIDATION}} | If any parameter is specified incorrectly.

@@ -1,1 +1,1 @@
-This module contains functions for creating SMS campaigns, adding recipients to them using one of the possible ways, launching a campaign, deleting of irrelevant campaigns, reviewing the list of campaigns and searching on them.
+This module contains functions for creating SMS campaigns, adding recipients to them in one of the possible ways, launching the campaign for sending, deleting outdated campaigns, viewing the list of campaigns, and searching through them.

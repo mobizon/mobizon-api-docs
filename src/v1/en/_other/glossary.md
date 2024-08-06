@@ -1,69 +1,61 @@
 ### Glossary
 
-<span data-anchor="glossary-id">`ID`</span> – a unique identifier that allows you to uniquely identify the object you are looking for: a campaign, a group, etc.
+<span data-anchor="glossary-id">`ID`</span> – a unique identifier that allows unambiguous identification of the desired object: campaign, group, etc.
 
-<span data-anchor="glossary-contact-card">`Contact card`</span> – an entry in the Contacts Book that contains customer information, such as: Name, email, date of birth and other information. 
-Must contain the phone number.
+<span data-anchor="glossary-contact-card">`Contact Card`</span> – a record in the Contact Book containing customer data such as full name, email, date of birth, and other information. Must contain a phone number.
 
-<span data-anchor="glossary-sender-id">`Sender's signature (Sender ID, alphanumeric name)`</span> – is displayed as the SMS sender on the recipient's phone instead of the phone number.  
-There are a *number of requirements* for the sender's signatures.
+<span data-anchor="glossary-sender-id">`Sender ID (alphanumeric name)`</span> – displayed as the sender of SMS on the recipient's phone instead of a phone number.  
+There are [several requirements](/en/help/sender-id/sender-id) for sender IDs.
 
-<span data-anchor="glossary-shared-senderid">`Shared signature (SMS sender's)`</span> – one of the service signatures used when sending a message, if the user has no signatures or the selected signature is not available for sending to the specified phone number. 
+<span data-anchor="glossary-shared-senderid">`Shared Sender ID (SMS sender)`</span> – one of the service signatures used when sending a message if the user has no signatures or the selected signature is not available for sending to the specified phone number.
 
-<span data-anchor="glossary-recipient">`Recipient (subscriber)`</span> – the user of the mobile communication service to whose number the SMS message is sent.
+<span data-anchor="glossary-recipient">`Recipient (subscriber)`</span> – a mobile network user to whose number the SMS message is sent.
 
-<span data-anchor="glossary-shortlink">`Short link`</span> – an abbreviated (alternative) URL to access the WEB page. 
+<span data-anchor="glossary-shortlink">`Short Link`</span> – a shortened (alternative) URL for accessing a web page. 
 
-Using a short link instead of the usual one minimizes unintended URL distortion - a short link is easier to remember copy or enter manually. 
+Using a short link instead of a regular one minimizes unintended URL distortion – the short link is easier to remember, copy, or enter manually.
 
-Statistics are provided in a convenient form: you can see the number of clicks for the last 2 hours, day, week, 30 days or all the time. 
+Statistical data is provided in a convenient form: you can see the number of clicks for the last 2 hours, day, week, 30 days, or all time (for more details, see the section on [short links](/en/help/url-shortener/how-to-shorten-url)).
 
-Also short links are convenient to use in SMS. They allow you to reduce the cost of sending by reducing the number of characters in the message. 
+Short links are also convenient to use in SMS. They allow you to reduce the cost of sending due to the smaller number of characters in the message.
 
-When using a short link created in our service, it is possible to use the [function of tracking recipients](#glossary-recipienttracking), who opened the link.
+When using a short link created in our service, you can enable the [recipient tracking](#glossary-recipienttracking) feature to see who clicked on the link.
 
-<span data-anchor="glossary-personal-link">`Personal link (recipient tracking link)`</span> – a special short link, created with the help of our service and allowing you to track which of the recipients of the SMS-campaign went to it. The link is unique for each individual SMS recipient. 
+<span data-anchor="glossary-personal-link">`Personal Link (recipient tracking link)`</span> – a special short link created using our service that allows tracking which specific recipients of the SMS campaign clicked on it. The link is unique for each individual SMS recipient.
 
-<span data-anchor="glossary-recipienttracking">`Function of tracking recipients`</span> – a tool to collect statistics about recipients who went the short link posted in the message. 
+<span data-anchor="glossary-recipienttracking">`Recipient Tracking Feature`</span> – a tool for collecting statistics on recipients who clicked on the short link included in the message.
 
-It is a convenient and effective tool for analyzing the target audience and evaluating the effectiveness of the SMS-campaign. 
+This is a convenient and effective means for analyzing the target audience and evaluating the effectiveness of the SMS campaign.
 
-The function is available for SMS messages containing hyperlinks. In order to activate the function, it is necessary to press the button of replacing the usual link with a short one in the Send SMS form and check whether the checkmark is next to the «track recipients» option.  
+The feature is available for SMS messages containing hyperlinks. To activate the feature, in the SMS Sending Form, click the button to replace the regular link with a short one and check if the "track recipients" option is selected.
 
-<span data-anchor="glossary-dlr">`Message delivery report (DLR)`</span> – information from your service provider about the status of SMS delivery to the recipient. 
+<span data-anchor="glossary-dlr">`Delivery Report (DLR)`</span> – information from the mobile operator about the status of SMS delivery to the recipient.
 
-<span data-anchor="glossary-form">`Form`</span> – a convenient tool for collecting customer data, conducting electronic surveys, forming a database of numbers and many other tasks. 
+<span data-anchor="glossary-sms-campaign">`SMS Campaign`</span> – allows you to group multiple recipients of a single SMS and analyze the results of the SMS campaign.
 
-With the help of Forms your clients can subscribe to SMS-mailing, news, promotions, etc.
+<span data-anchor="glossary-single-campaign">`Single Campaign`</span> – sending a message to one number.
 
-Thanks to the flexible and intuitive field design, you can easily create a form that is as effective as possible for your tasks.
+<span data-anchor="glossary-mass-campaign">`Mass Campaign`</span> – sending a message to two or more numbers.
 
-In addition, you can customize the design of the form: choose the color of text, buttons, background, etc. 
-You can find out more about creating Forms in the *Forms* section.  
+<span data-anchor="glossary-functional-campaign">`Functional (service) Campaign`</span> – includes functional or, in other words, service system messages, such as messages with a phone number confirmation code from forms.
 
-<span data-anchor="glossary-sms-campaign">`SMS Campaign`</span> – allows you to group multiple recipients of a single SMS and analyze the results of SMS-sending. 
+<span data-anchor="glossary-template">`Template Campaign`</span> – a type of SMS campaign that uses a special message form containing placeholders that are replaced with personalized text for each recipient.
 
-<span data-anchor="glossary-single-campaign">`Single campaign`</span> – send a message to one number.
+**Template Example**
 
-<span data-anchor="glossary-mass-campaign">`Массовая кампания`</span> – send a message to two or more numbers.
+Placeholders are placed in curly braces {}.
 
-<span data-anchor="glossary-functional-campaign">`Functional (service) campaign`</span> – it includes functional or, in other words, service messages of the system, for example, messages with number confirmation code from forms.
-
-<span data-anchor="glossary-template">`Template campaign`</span> – type of SMS-campaign, which uses a special form of message containing playholders, which are replaced by personal text for each recipient.
-
-**Example template**
-
-Placeholders are placed in curly brackets {}.  
-
-Template text with pleiseholders      | The text that will be delivered to the recipient   
+Template text with placeholders      | Text that will be delivered to the recipient    
 -----------------|---------
-Hello, {name}! Your balance on {date} is {balance}{currency}.    | Hello, Nick! Your balance on 12.09.2019 is USD 15.50. 
-{name}, the car has arrived. Driver's phone: {driverPhone}.    | Alex, the car has arrived (GKR 444). Driver's phone: 099 999 99 99.
-We remind you that you have an appointment at the {place}. Reception Date: {date}.    | We remind you that you have an appointment at the Clinic. Reception Date: 11.11.2019 at 11:30.  
+Hello, {name}! Your balance on {date} is {balance}{currency}.     | Hello, Ivan! Your balance on 12.09.2019 is 15.50 UAH.  
+{name}, the car has arrived ({carNumber}). Driver's phone: {driverPhone}.    | Alexey, the car has arrived (AA 4444). Driver's phone: 099 999 99 99.
+We remind you that you have an appointment at {place}. Appointment date: {date}.    | We remind you that you have an appointment at Clinic on 11.11.2019 at 11:30.  
 
+<span data-anchor="glossary-form">`Form`</span> – a convenient tool for collecting client data, conducting electronic surveys, forming a database of numbers for mailing, and many other tasks.
 
+With Forms, your clients can subscribe to SMS mailings, news, promotions, etc.
 
+Thanks to the flexible and intuitive field constructor, you can easily create a Form that is most effective for your tasks.
 
-
-
-
+In addition, you can customize the Form's design: choose the color of the text, buttons, background, etc. 
+For more details on creating Forms, see the [“Forms”](/en/help/forms/how-to-create-form) section.

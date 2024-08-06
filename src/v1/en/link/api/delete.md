@@ -1,18 +1,18 @@
-### Short links deletion
+### Deleting Short Links
 {{EXAMPLE_QUERY}}
 
-#### Request parameters
+This method is intended for deleting short links.
+
+#### Request Parameters
 
  Parameter | Type    | Description
 ----------|--------|-----------
-`ids`     | array  | Links' IDs
+`ids`     | array  | Link identifiers.
 
+#### Server Response
+Array of data
 
-#### Sever response
-Data array
- 
-Field          | Type    | Description
+Field           | Type     | Description
 ---------------|---------|-------------
-`processed`    | array   | Deleted links' IDs
-`notProcessed` | array   | Undeleted links' IDs
-
+`processed`    | array   | Identifiers of deleted links.
+`notProcessed` | array   | Identifiers of links that were not deleted.

@@ -1,29 +1,31 @@
-### Creation of a new short link
+### Creating a Short Link
 {{EXAMPLE_QUERY}}
 
-#### Request parameters
+This method is designed for creating short links.
+#### Request Parameters
 
-data : array Link parameters (compulsory parameter)
+**data** `array` – Link parameters
 
-Parameter             | Type     | Description
+ Parameter             | Type     | Description
 ----------------------|---------|-----------
-`data[fullLink]`      | string  | Full link
-`data[status]`        | integer | Link status (***0*** - inactive, ***1*** - active)
-`data[expirationDate]`| date    | Link expiration date (in the format `YYYY-MM-DD`), by default is not limited
-`data[comment]`       | string  | Comment to the link
+`data[fullLink]`      | string  | Full link.<br>The link that needs to be shortened in the correct URL format.<br>For example: `https://help.mobizon.com/api-docs/sms-api?utm_campaign=docs&utm_source=help&utm_medium=test#server-response-format` or `www.mobizon.com` 
+`data[status]`        | integer | Status of the short link:<br>**0** – link inactive;<br>**1** – link active (default).
+`data[expirationDate]`| date    | Expiration date of the link.<br>The link will be valid until the end of the specified day in the user's time zone.<br>By default, the link does not expire.<br>Format: `YYYY-MM-DD`.
+`data[comment]`       | string  | Comment on the link.<br>This field helps to easily find the short link among others.<br>For example: "Black Friday Discounts" or "Negative Balance Reminder".<br>Maximum comment length is 255 characters.
 
-#### Sever response
-array : Short link data
+#### Server Response
+`array`: Data of the created short link
 
-Field      | Type     | Description
+Field        | Type     | Description
 ------------|---------|-------------
-`id`        | integer | Link ID
-`code`      | string  | Short link code
-`shortLink` | string  | Short link
+`id`        | integer | Link identifier.
+`code`      | string  | Short link code.
+`shortLink` | string  | Short link.
 
 
-#### Errors codes
+#### API Response Codes
 
-Code| Description
+Code | Description
 ----|----
-{{API_VALIDATION}} | If any of the parameters contains invalid values.
+{{API_OK}}         | Short link successfully created.
+{{API_VALIDATION}} | If any parameters contain invalid values.

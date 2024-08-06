@@ -5,21 +5,21 @@ return [
     'postParams'    => [
         'recipient' => [
             'value'       => '{widget:example-phone}',
-            'description' => 'SMS message recipient phone number'
+            'description' => 'recipient of the SMS message'
         ],
         'text'      => [
             'value'       => 'Test sms message',
-            'description' => 'SMS message text'
+            'description' => 'text of the SMS message'
         ],
         'from'      => [
             'value'       => 'YourAlpha',
-            'description' => 'alphanumeric sender ID'
+            'description' => 'sender ID'
         ],
         'params'    => [
             'value'       => [
                 'validity' => [
                     'value'       => 1440,
-                    'description' => 'SMS expiration time in seconds'
+                    'description' => 'message validity period'
                 ],
             ]
         ]

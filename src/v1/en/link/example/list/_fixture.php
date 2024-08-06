@@ -10,7 +10,7 @@ return [
                 ],
                 'moderatorStatus' => [
                     'value' => 1,
-                    'description' => 'only approved by moderator'
+                    'description' => 'links approved by the moderator'
                 ]
             ],
             'description' => 'search criteria'
@@ -23,7 +23,7 @@ return [
                 ],
                 'pageSize' => [
                     'value' => 50,
-                    'description' => 'number of displayed items per page'
+                    'description' => 'number of items displayed per page'
                 ]
             ],
             'description' => 'pagination parameters'
@@ -32,13 +32,14 @@ return [
             'value'       => [
                 'clickCnt' => [
                     'value' => 'ASC',
-                    'description' => 'sorting by number of clicks ascending'
+                    'description' => 'sort by number of clicks in ascending order'
                 ]
             ],
             'description' => 'sorting parameters'
         ]
     ]
 ];
+
 
 
 

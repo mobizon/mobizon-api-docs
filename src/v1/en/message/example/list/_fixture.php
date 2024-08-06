@@ -6,7 +6,7 @@ return [
             'value'       => [
                 'from' => [
                     'value' => 'Alpha',
-                    'description' => 'alphanumeric sender ID'
+                    'description' => 'sender ID'
                 ],
             ],
             'description' => 'search criteria'
@@ -19,7 +19,7 @@ return [
                 ],
                 'pageSize' => [
                     'value' => 50,
-                    'description' => 'number of displayed items per page'
+                    'description' => 'number of items per page'
                 ]
             ],
             'description' => 'pagination parameters'
@@ -28,7 +28,7 @@ return [
             'value'       => [
                 'campaignId' => [
                     'value' => 'ASC',
-                    'description' => 'sorting by campaign ID ascending'
+                    'description' => 'sort by campaign ID'
                 ]
             ],
             'description' => 'sorting parameters'

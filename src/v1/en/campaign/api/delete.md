@@ -1,20 +1,23 @@
-### Full deletion of the campaign
+### Deleting a Campaign
 {{EXAMPLE_QUERY}}
 
-You can delete the campaign, which has not yet started, but if the campaign was postponed, there should be not less than 5 minutes left till start.
+This method allows you to delete a campaign by its [ID](/en/help/api-docs/other#glossary-id).
+<br>A campaign can be deleted if its sending has not yet started.
+<br>If the campaign is scheduled: a scheduled campaign can be deleted provided that there are at least 5 minutes left before the start of sending.
 
-####Request parameters
+#### Request Parameters
 
  Parameter              | Type     | Description
 ------------------------|---------|-----------
-`id`                    | integer | Campaign ID
+`id`                    | integer | Campaign identifier.
 
-#### Server response
-boolean **true** - if the deletion was successfully completed
 
-#### Errors codes
+
+
+#### API Response Codes
 
 Code | Description
 ----|----
-{{API_RECORD_NOT_FOUND}} | If the campaign with specified ID was not found
-{{API_DATA_UPDATE}}      | If the campaign with specified ID can't be deleted
+{{API_OK}}               | Campaign successfully deleted.
+{{API_RECORD_NOT_FOUND}} | If the campaign with the specified ID is not found.
+{{API_DATA_UPDATE}}      | If the campaign with the specified ID cannot be deleted.

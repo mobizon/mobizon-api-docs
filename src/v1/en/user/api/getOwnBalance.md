@@ -1,10 +1,12 @@
-### Getting of balance information
+### Getting Balance Information
 {{EXAMPLE_QUERY}}
 
-#### Server response
-An array
+This method allows you to retrieve information about the user's balance.
 
-Field     | Type     | Description
----------|---------|-------------
-balance  | fixed   | Balance amount
-currency | char(3) | Balance currency
+#### Server Response
+Data array
+
+Field     | Type    | Description
+----------|---------|-------------
+balance  | fixed   | Current amount on the user's balance with a precision of 4 decimal places.
+currency | char(3) | Balance currency in [ISO 4217 alphabetic code](https://en.wikipedia.org/wiki/ISO_4217#cite_ref-exponent_7-0) format.

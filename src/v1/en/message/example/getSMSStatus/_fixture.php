@@ -9,7 +9,7 @@ return [
                 ['value' => 556],
                 ['value' => 988],
             ],
-            'description' => 'message IDs',
+            'description' => 'message identifiers',
             'ignoreKeys'  => true
         ]
     ]

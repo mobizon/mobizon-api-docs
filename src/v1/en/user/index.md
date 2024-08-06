@@ -1,1 +1,1 @@
-User Account Management Features
+Account data management functions

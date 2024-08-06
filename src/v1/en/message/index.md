@@ -1,1 +1,1 @@
-Creation, sending and other functions to work with single messages (not campaigns). 
+Creation, sending, and other functions for handling individual messages (not campaigns).

@@ -4,7 +4,7 @@ return [
     'postParams'    => [
         'id' => [
             'value'       => 123,
-            'description' => 'campaign ID'
+            'description' => 'campaign identifier'
         ]
     ]
 ];
