@@ -13,7 +13,7 @@ return [
                     'description' => 'підпис відправника'
                 ],
                 'text' => [
-                    'value'       => 'Вітаю, {name}! Ваш баланс на {date} складає {balance}{currency}.',
+                    'value'       => 'Вітаємо, {name}! Ваш баланс на {date} становить {balance}{currency}.',
                     'description' => 'текст повідомлення'
                 ]
             ],

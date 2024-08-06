@@ -1,5 +1,4 @@
 <?php
-
 $queryParams = '';
 if (array_key_exists('queryParams', $fixture)) {
     $queryParams = self::parsePhpExampleParams($fixture['queryParams']);
@@ -21,7 +20,7 @@ use Mobizon\MobizonApi;
 
 $api = new MobizonApi(\'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK\', \'{widget:api-domain}\');
 
-// Вызов АПИ метода
+// Виклик АПІ методу
 if ($api->call(
     \'' . $provider . '\',
     \'' . $method . '\'' . (!empty($postParams) ? ',
@@ -32,7 +31,7 @@ if ($api->call(
     // Отримання результату виконання методу
     $result = $api->getData();
 } else {
-    // Під час виконання сталася помилка, виведення коду помилки і тексту повідомлення
+    // Під час виконання сталася помилка, вивід коду помилки і тексту повідомлення
     echo \'[\' . $api->getCode() . \'] \' . $api->getMessage() . PHP_EOL;
 }
 ```

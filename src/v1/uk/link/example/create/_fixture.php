@@ -5,7 +5,7 @@ return [
         'data' => [
             'value'       => [
                 'fullLink' => [
-                    'value'       => 'http://mobizon.kz',
+                    'value'       => 'http://mobizon.ua',
                     'description' => 'повне посилання'
                 ],
                 'status' => [
@@ -24,3 +24,4 @@ return [
         ]
     ]
 ];
+
