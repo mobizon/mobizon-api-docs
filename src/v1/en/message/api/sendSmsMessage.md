@@ -19,7 +19,7 @@ Parameter               | Type     | Description
 -----------------------|---------|-------------
 `params[name]`         | string  | Campaign name.
 `params[deferredToTs]` | string  | Date and time of deferred SMS message sending.<br>You can set the start of sending no earlier than one hour and no later than 14 days.<br>Format: `YYYY-MM-DD HH:MM:SS`.
-`params[mclass]`       | integer | Class of the sent message:<br>**0** – messages are displayed as a pop-up and not saved anywhere (flashSMS);<br>**1** – messages are saved in the phone's Inbox folder (default).
+`params[shortenLinks]` | integer | Flag indicating the need to apply the link shortening function to all links in the SMS text. Default: 0 (disabled). Set to **1** to enable.
 `params[validity]`     | integer | Maximum waiting time for message delivery if the recipient cannot receive it immediately.<br>For example, if the recipient's phone is turned off or out of network coverage.<br>Specified in minutes from the moment of sending: from 60 minutes (1 hour) to 1440 minutes (24 hours).
 
 
