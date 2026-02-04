@@ -1,4 +1,4 @@
-﻿### Obter dados estatísticos da campanha
+### Obter dados estatísticos da campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite obter os dados básicos e estatísticos da campanha por seu [ID](/br/help/api-docs/other#glossary-id).

@@ -1,4 +1,4 @@
-﻿### Excluir links curtos
+### Excluir links curtos
 {{EXAMPLE_QUERY}}
 
 Este método destina-se à exclusão de links curtos.

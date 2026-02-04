@@ -1,4 +1,4 @@
-﻿### Códigos de resposta da API
+### Códigos de resposta da API
 
 Cada resposta a uma requisição à API retorna um array composto por [três campos](/br/help/api-docs/sms-api#server-response-format), um dos quais é o `code`. Este campo contém o status do processamento da requisição e pode servir como guia para as próximas ações por parte do aplicativo cliente. A tabela seguinte apresenta os códigos da API e seus significados:
 

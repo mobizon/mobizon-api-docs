@@ -1,4 +1,4 @@
-﻿### Editar dados do link curto
+### Editar dados do link curto
 {{EXAMPLE_QUERY}}
 
 Este método permite alterar os parâmetros de um link curto criado.

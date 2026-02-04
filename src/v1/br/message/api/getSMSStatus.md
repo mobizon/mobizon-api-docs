@@ -1,4 +1,4 @@
-﻿### Obter relatório de status de entrega de mensagem SMS
+### Obter relatório de status de entrega de mensagem SMS
 {{EXAMPLE_QUERY}}
 
 Este método permite obter dados sobre o status atual de entrega de uma ou mais mensagens SMS.

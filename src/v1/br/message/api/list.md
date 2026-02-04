@@ -1,4 +1,4 @@
-﻿### Obter lista de mensagens SMS
+### Obter lista de mensagens SMS
 {{EXAMPLE_QUERY}}
 
 Este método permite obter uma lista das mensagens SMS criadas.

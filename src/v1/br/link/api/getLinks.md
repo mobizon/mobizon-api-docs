@@ -1,4 +1,4 @@
-﻿### Obter links curtos da campanha
+### Obter links curtos da campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite obter informações e estatísticas da lista de links curtos de uma campanha.

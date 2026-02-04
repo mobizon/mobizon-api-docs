@@ -1,4 +1,4 @@
-﻿### Obter o progresso de execução de uma tarefa em segundo plano
+### Obter o progresso de execução de uma tarefa em segundo plano
 {{EXAMPLE_QUERY}}
 
 Este método permite obter o progresso de execução de uma tarefa em segundo plano por seu [ID](/br/help/api-docs/other#glossary-id).

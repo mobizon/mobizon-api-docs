@@ -1,4 +1,4 @@
-﻿### Adicionar destinatários a uma campanha de SMS em massa
+### Adicionar destinatários a uma campanha de SMS em massa
 {{EXAMPLE_QUERY}}
 
 Em uma única requisição, é permitida apenas a transferência de dados sobre destinatários de um único tipo:

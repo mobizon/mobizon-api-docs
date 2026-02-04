@@ -1,4 +1,4 @@
-﻿### Obter dados básicos da campanha
+### Obter dados básicos da campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite obter os dados básicos de uma campanha criada por seu [ID](/br/help/api-docs/other#glossary-id).

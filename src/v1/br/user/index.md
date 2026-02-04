@@ -1,4 +1,4 @@
-﻿Funções de gerenciamento dos dados da conta do usuário.
+Funções de gerenciamento dos dados da conta do usuário.
 
 
 

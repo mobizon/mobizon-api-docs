@@ -1,4 +1,4 @@
-﻿### Lista de status de mensagens SMS possíveis
+### Lista de status de mensagens SMS possíveis
 
 Status   | Final | Descrição
 ---------|---------------|------------------------------------

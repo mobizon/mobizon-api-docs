@@ -1,4 +1,4 @@
-﻿### Criar link curto
+### Criar link curto
 {{EXAMPLE_QUERY}}
 
 Este método destina-se à criação de links curtos.

@@ -1,4 +1,4 @@
-﻿### Glossário
+### Glossário
 
 <span data-anchor="glossary-id">`ID`</span> – identificador único que permite identificar de forma inequívoca o objeto procurado: campanha, grupo, etc.
 

@@ -1,4 +1,4 @@
-﻿# Webhooks: guia de uso
+# Webhooks: guia de uso
 
 ## O que é um webhook e para que serve
 

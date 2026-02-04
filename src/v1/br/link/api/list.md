@@ -1,4 +1,4 @@
-﻿### Obter lista de links
+### Obter lista de links
 {{EXAMPLE_QUERY}}
 
 Este método permite obter uma lista de links curtos criados. A busca pode ser realizada por [ID](/br/help/api-docs/other#glossary-id) e dados dos campos do link curto.

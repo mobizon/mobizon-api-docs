@@ -1,4 +1,4 @@
-﻿### Obter informações de saldo
+### Obter informações de saldo
 {{EXAMPLE_QUERY}}
 
 Este método permite obter informações sobre o saldo do usuário.

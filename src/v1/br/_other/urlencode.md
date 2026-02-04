@@ -1,4 +1,4 @@
-﻿### Codificação de strings em URL
+### Codificação de strings em URL
 Em todas as linguagens de servidor existe, de uma forma ou de outra, uma função que retorna uma string na qual todos os caracteres não alfanuméricos, exceto `-` `_` `.` devem ser substituídos por um sinal de porcentagem (`%`), seguido por dois números hexadecimais, e os espaços codificados como um sinal de adição (`+`). A string é codificada da mesma maneira que os dados POST de um formulário web, ou seja, de acordo com o tipo de conteúdo `application/x-www-form-urlencoded`. Isso difere da codificação conforme a [RFC 3986](http://www.faqs.org/rfcs/rfc3986) no fato de que, por razões históricas, os espaços são codificados como um sinal de "mais" (`+`).
 
 #### Implementação em várias linguagens de programação

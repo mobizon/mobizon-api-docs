@@ -1,4 +1,4 @@
-﻿### Excluir campanha
+### Excluir campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite excluir uma campanha por seu [ID](/br/help/api-docs/other#glossary-id).

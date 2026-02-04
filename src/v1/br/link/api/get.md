@@ -1,4 +1,4 @@
-﻿### Obter dados básicos do link curto
+### Obter dados básicos do link curto
 {{EXAMPLE_QUERY}}
 
 Este método permite obter os dados básicos de um link curto através de um de seus três parâmetros: **id**, **code**, **shortLink**.

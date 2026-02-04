@@ -1,4 +1,4 @@
-﻿### Obter estatísticas de cliques nos links
+### Obter estatísticas de cliques nos links
 {{EXAMPLE_QUERY}}
 
 Este método destina-se a obter estatísticas de cliques para um ou mais links curtos por seus [IDs](/br/help/api-docs/other#glossary-id).

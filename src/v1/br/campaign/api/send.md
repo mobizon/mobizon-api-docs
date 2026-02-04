@@ -1,4 +1,4 @@
-﻿### Enviar campanha
+### Enviar campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite enviar uma campanha criada por seu [ID](/br/help/api-docs/other#glossary-id).

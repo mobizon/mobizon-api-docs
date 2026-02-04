@@ -1,4 +1,4 @@
-﻿### Enviar uma única mensagem SMS
+### Enviar uma única mensagem SMS
 {{EXAMPLE_QUERY}}
 
 Este método permite que você envie uma única mensagem SMS para um número de telefone celular especificado.

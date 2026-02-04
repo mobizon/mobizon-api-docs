@@ -1,4 +1,4 @@
-﻿### Criação de uma nova campanha
+### Criação de uma nova campanha
 {{EXAMPLE_QUERY}}
 
 Este método permite que você crie uma nova [campanha SMS](/br/help/api-docs/other#glossary-sms-campaign).

@@ -1,4 +1,4 @@
-﻿### Obter lista de campanhas
+### Obter lista de campanhas
 {{EXAMPLE_QUERY}}
 
 Este método permite obter uma lista de campanhas criadas. A busca pode ser realizada por [ID](/br/help/api-docs/other#glossary-id) e outros campos.
